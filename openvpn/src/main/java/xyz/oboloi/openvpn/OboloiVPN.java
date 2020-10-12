@@ -51,7 +51,7 @@ public class OboloiVPN implements VpnStatus.ByteCountListener, VpnStatus.StateLi
     private OnVPNStatusChangeListener listener;
 
     private boolean value;
-    private String expireDate;
+    private String expireDate,username,password;
 
     public void setOnVPNStatusChangeListener(OnVPNStatusChangeListener listener)
     {
