@@ -31,12 +31,14 @@ public class ProfileAsync extends AsyncTask<Void, Void, Boolean> {
 
     private WeakReference<Context> context;
     private OnProfileLoadListener onProfileLoadListener;
-    private String config;
+    private String config,username,password;
 
-    public ProfileAsync(Context context, OnProfileLoadListener onProfileLoadListener, String config) {
+    public ProfileAsync(Context context, OnProfileLoadListener onProfileLoadListener, String config, String username, String password) {
         this.context = new WeakReference<>(context);
         this.onProfileLoadListener = onProfileLoadListener;
         this.config = config;
+        this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -59,8 +61,8 @@ public class ProfileAsync extends AsyncTask<Void, Void, Boolean> {
             VpnProfile vp = cp.convertProfile();
             ProfileManager vpl = ProfileManager.getInstance(context.get());
             vp.mName = Build.MODEL;//
-            vp.mUsername = null;
-            vp.mPassword = null;
+            vp.mUsername = username;
+            vp.mPassword = password;
             vpl.addProfile(vp);
             vpl.saveProfile(context.get(), vp);
             vpl.saveProfileList(context.get());

@@ -96,7 +96,7 @@ public class OboloiVPN implements VpnStatus.ByteCountListener, VpnStatus.StateLi
 
                     Toast.makeText(context, context.getString(R.string.init_fail) + msg, Toast.LENGTH_SHORT).show();
                 }
-            }, config);
+            }, config,username,password);
             profileAsync.execute();
         }
 
