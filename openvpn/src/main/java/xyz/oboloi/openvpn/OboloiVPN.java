@@ -77,8 +77,9 @@ public class OboloiVPN implements VpnStatus.ByteCountListener, VpnStatus.StateLi
     }
 
 
-    public void launchVPN(String config,String expireDate) {
-
+    public void launchVPN(String config,String username,String password,String expireDate) {
+        this.username = username;
+        this.password = password;
         this.expireDate = expireDate;
         if (!App.isStart) {
             DataCleanManager.cleanApplicationData(context);
